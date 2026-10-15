@@ -1,6 +1,6 @@
-# Lapaas AI Course Assistant
+# LAPAAS AI Course Assistant
 
-Helps visitors understand whether Lapaas’s AI Product Engineering course suits their goals.
+Helps visitors understand whether LAPAAS’s AI Product Engineering course suits their goals.
 
 ## Features
 

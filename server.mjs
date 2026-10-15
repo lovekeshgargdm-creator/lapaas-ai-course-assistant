@@ -15,4 +15,4 @@ createServer(async(req,res)=>{
   res.writeHead(200,{'Content-Type':mime[extname(path)]||'application/octet-stream','X-Content-Type-Options':'nosniff'});
   res.end(req.method==='HEAD'?undefined:await readFile(path));
  }catch{if(!res.headersSent)res.writeHead(404);res.end('Not found');}
-}).listen(Number(process.env.PORT||3000),()=>console.log('Lapaas assistant: http://localhost:'+ (process.env.PORT||3000)));
+}).listen(Number(process.env.PORT||3000),()=>console.log('LAPAAS assistant: http://localhost:'+ (process.env.PORT||3000)));

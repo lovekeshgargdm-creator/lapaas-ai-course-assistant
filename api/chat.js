@@ -67,7 +67,7 @@ export default async function handler(req,res){
  if(provider==='nvidia'&&!/^[a-z0-9._-]+\/[a-z0-9._-]+$/i.test(model))return reply(res,503,{error:'AI chat needs a model configuration update. Please use the guide for now.'});
  const endpoint=provider==='nvidia'?'https://integrate.api.nvidia.com/v1/chat/completions':'https://openrouter.ai/api/v1/chat/completions';
  const headers={'Authorization':'Bearer '+apiKey,'Content-Type':'application/json','Accept':'application/json'};
- if(provider==='openrouter')headers['X-OpenRouter-Title']='Lapaas Course Discovery Assistant';
+ if(provider==='openrouter')headers['X-OpenRouter-Title']='LAPAAS Course Discovery Assistant';
  const payload={model,messages:makeMessages(input.messages,input.profile,provider==='nvidia'?'text-meta':'json'),temperature:0.2,max_tokens:1600,stream:false};
  if(provider==='nvidia'){
   // NVIDIA uses natural answer text with optional source metadata.
@@ -130,7 +130,7 @@ export default async function handler(req,res){
   return reply(res,200,answer);
  }catch(error){
   if(error.name==='AbortError')return reply(res,504,{error:'The AI service took too long to answer. Please try again. Your question has been kept.'});
-  if(error.message==='INVALID_ANSWER')return reply(res,502,{error:'The assistant could not prepare a reliable answer. Please try again or ask Lapaas directly.'});
+  if(error.message==='INVALID_ANSWER')return reply(res,502,{error:'The assistant could not prepare a reliable answer. Please try again or ask LAPAAS directly.'});
   return reply(res,503,{error:'The AI connection was interrupted. Please try again or use the guide.'});
  }finally{clearTimeout(timer);}
 }
